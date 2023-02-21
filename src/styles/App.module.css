@@ -1,0 +1,11 @@
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  place-items: center;
+}
+.container {
+  min-height: 75vh;
+  width: 90vw;
+  background: red;
+}

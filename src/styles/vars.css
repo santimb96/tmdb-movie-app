@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+
+:root {
+  /* FONTS */
+
+  --font-family: 'Roboto Slab', serif;
+  /* COLORS */
+
+  --text-color: black;
+  --background-color: white;
+
+  /* SIZES */
+
+  /* buttons */
+  --navbar-button-complete-screen: clamp(14px, 0.2778vw + 13px, 16px);
+  --close-or-open: clamp(20px, 2.7778vw + 10px, 40px);
+  --button: clamp(100px, 13.8889vw + 50px, 200px);
+
+  /* text */
+  --tag: clamp(10px, 0.5556vw + 8px, 12px);
+  --text: clamp(14px, 0.2778vw + 13px, 16px);
+  --footer-text: clamp(10px, 0.5556vw + 8px, 14px);
+  --title: clamp(18px, 0.4167vw + 16.5px, 21px);
+  --subtitle: clamp(16px, 0.2778vw + 15px, 18px);
+
+  /* icons */
+  --icon: clamp(16px, 2.6389vw + 6.5px, 35px);
+  --certification-card-icon: clamp(50px, 6.9444vw + 25px, 100px);
+
+  --separator: 1.5px;
+
+  /* landscape */
+  --landscape-text: clamp(10px, 0.8333vw + 7px, 16px);
+  --mobile-padding: 0% 5% 0% 5%;
+  --desktop-padding: 0% 15% 0% 15%;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Router from './Router/Router'
 import styles from './styles/App.module.css'
@@ -10,6 +11,7 @@ const App = () => {
       <div className={styles.container}>
         <Router />
       </div>
+      <Footer />
     </div>
   )
 }

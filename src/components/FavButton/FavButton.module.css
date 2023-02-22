@@ -15,5 +15,5 @@
 
 .fav > svg {
   font-size: var(--icon);
-  color: var(--background-color);
+  color: var(--primary-color);
 }

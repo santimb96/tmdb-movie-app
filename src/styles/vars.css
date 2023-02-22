@@ -7,7 +7,7 @@
   /* COLORS */
 
   --text-color: black;
-  --background-color: white;
+  --primary-color: white;
   --secondary-color: #08b5e1;
 
   /* SIZES */
@@ -25,8 +25,8 @@
   --subtitle: clamp(16px, 0.2778vw + 15px, 18px);
 
   /* icons */
-  --icon: clamp(16px, 2.6389vw + 6.5px, 35px);
-  --certification-card-icon: clamp(50px, 6.9444vw + 25px, 100px);
+  --icon: clamp(20px, 2.6389vw + 6.5px, 35px);
+  /* --icon: clamp(50px, 6.9444vw + 25px, 100px); */
 
   --separator: 1.5px;
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { formatDate } from '../../utils/utilities'
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md'
 import styles from './FilmCard.module.css'
+import FavButton from '../FavButton/FavButton'
 
 const FilmCard = ({ film }) => {
   return (
@@ -11,9 +12,7 @@ const FilmCard = ({ film }) => {
         src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
         alt={film?.title}
       />
-      <button className={styles.fav}>
-        <MdOutlineFavoriteBorder />
-      </button>
+      <FavButton />
       <h1 className={styles.title}>{film?.title}</h1>
       <div className={styles.info}>
         <p className={styles.releaseDate}>

@@ -1,0 +1,19 @@
+.fav {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  left: 75%;
+  top: 58%;
+}
+
+.fav > svg {
+  font-size: var(--icon);
+  color: var(--background-color);
+}

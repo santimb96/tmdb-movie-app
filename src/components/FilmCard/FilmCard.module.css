@@ -16,26 +16,6 @@
   border-radius: 10px 10px 0 0;
 }
 
-.fav {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  width: 40px;
-  background: var(--secondary-color);
-  border: none;
-  border-radius: 50%;
-  position: absolute;
-  left: 70%;
-  top: 58%;
-}
-
-.fav > svg {
-  font-size: var(--icon);
-  color: var(--background-color);
-}
-
 .title {
   font-size: var(--text);
   text-align: center;

@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <div className={styles.header}>
         <div className={styles.content}>
-          <img src="../../../public/img/tmdbLogo.svg" alt="tmdbLogo" />
+          <img src="img/tmdbLogo.svg" alt="tmdbLogo" />
           <SearchBar />
         </div>
       </div>

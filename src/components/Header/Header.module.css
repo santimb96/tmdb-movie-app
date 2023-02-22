@@ -1,8 +1,12 @@
 .header {
-  min-height: 25vh;
+  height: 25vh;
   width: 100vw;
   display: grid;
   place-items: center;
+  background: var(--background-color);
+  z-index: 999;
+  position: fixed;
+  top: 0;
 }
 
 .content {

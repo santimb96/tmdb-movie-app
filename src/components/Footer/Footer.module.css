@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  min-height: 20vh;
+  height: 20vh;
   background: var(--secondary-color);
   color: var(--primary-color);
   font-size: var(--footer-text);

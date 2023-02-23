@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { SearchContext } from '../../contexts/SearchContext'
 import { AiOutlineSearch } from 'react-icons/ai'
 import styles from './SearchBar.module.css'
 
 const SearchBar = ({ field = 'title' }) => {
-  const [search, setSearch] = useState('')
+  const { setSearch } = useContext(SearchContext)
+  const [searchInput, setSearchInput] = useState('')
 
   const onSearch = () => {
-    console.warn(search)
-    setSearch('')
+    setSearch({ state: true, value: searchInput })
+    setSearchInput('')
   }
 
   return (
@@ -17,10 +19,10 @@ const SearchBar = ({ field = 'title' }) => {
           placeholder={`Search by ${field}`}
           className={styles.searchBar}
           type="text"
-          value={search}
+          value={searchInput}
           id={field}
           name={field}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
         <button className={styles.searchButton} onClick={() => onSearch()}>
           <AiOutlineSearch />

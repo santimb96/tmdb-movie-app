@@ -36,4 +36,6 @@ const COLORS = [
   },
 ]
 
-export { MONTHS, COLORS }
+const PAGES_LIMIT = 20
+
+export { MONTHS, COLORS, PAGES_LIMIT }

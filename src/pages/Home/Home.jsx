@@ -10,15 +10,17 @@ const Home = () => {
   const [totalPages, setTotalPages] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+
   useEffect(() => {
-    Promise.resolve(getFilms())
+    Promise.resolve(getFilms(page))
       .then((data) => {
         setFilms(data?.results)
         setTotalPages(data?.total_pages)
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false))
-  }, [])
+  }, [page])
+
   return (
     <>
       <List list={films} />

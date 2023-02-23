@@ -13,4 +13,19 @@ const MONTHS = [
   'December',
 ]
 
-export { MONTHS }
+const COLORS = [
+  {
+    average: (n) => n < 5,
+    color: 'red',
+  },
+  {
+    average: (n) => n >= 5 && n < 7,
+    color: 'yellow',
+  },
+  {
+    average: (n) => n >= 7,
+    color: 'yellowgreen',
+  },
+]
+
+export { MONTHS, COLORS }

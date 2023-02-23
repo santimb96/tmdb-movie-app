@@ -21,8 +21,13 @@ const Footer = () => {
         </div>
         <div className={styles.icons}>
           {ICONS?.map((Icon, idx) => (
-            <a className={styles.link} href={Icon.link} target="_blank">
-              <Icon.component key={idx} />
+            <a
+              className={styles.link}
+              key={idx}
+              href={Icon.link}
+              target="_blank"
+            >
+              <Icon.component />
             </a>
           ))}
         </div>

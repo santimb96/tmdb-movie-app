@@ -18,6 +18,7 @@
   opacity: 0.3;
 }
 .searchBar:focus {
+  caret-color: var(--secondary-color);
   outline: none;
 }
 

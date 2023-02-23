@@ -1,6 +1,5 @@
 import React from 'react'
-import { formatDate } from '../../utils/utilities'
-import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md'
+import { formatDate, getColorFromAverage } from '../../utils/utilities'
 import styles from './FilmCard.module.css'
 import FavButton from '../FavButton/FavButton'
 
@@ -18,7 +17,12 @@ const FilmCard = ({ film }) => {
         <p className={styles.releaseDate}>
           {formatDate(new Date(film?.release_date))}
         </p>
-        <p className={styles.voteAverage}>{film?.vote_average}</p>
+        <p
+          className={styles.voteAverage}
+          style={{ backgroundColor: getColorFromAverage(+film?.vote_average) }}
+        >
+          {film?.vote_average}
+        </p>
       </div>
     </div>
   )

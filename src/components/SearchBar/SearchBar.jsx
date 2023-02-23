@@ -12,7 +12,6 @@ const SearchBar = ({ field = 'title' }) => {
 
   return (
     <>
-      {console.log(search)}
       <div className={styles.searchComponent}>
         <input
           placeholder={`Search by ${field}`}

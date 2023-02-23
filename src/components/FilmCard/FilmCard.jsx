@@ -12,10 +12,10 @@ const FilmCard = ({ film }) => {
         alt={film?.title}
       />
       <FavButton />
-      <h1 className={styles.title}>{film?.title}</h1>
+      <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
       <div className={styles.info}>
         <p className={styles.releaseDate}>
-          {formatDate(new Date(film?.release_date))}
+          {formatDate(new Date(film?.release_date || film?.first_air_date))}
         </p>
         <p
           className={styles.voteAverage}

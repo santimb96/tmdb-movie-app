@@ -15,7 +15,15 @@ const Home = () => {
 
   useEffect(() => {
     if (search !== '') {
-      Promise.resolve(getFilmByTitle(search, page))
+      const fixPageOnSearch = () => {
+        console.log(search.length, page)
+        if (search.length === 1) {
+          setPage(1)
+        }
+
+        return page
+      }
+      Promise.resolve(getFilmByTitle(search, fixPageOnSearch()))
         .then((data) => {
           setFilms(data?.results)
           setTotalPages(data?.total_pages)

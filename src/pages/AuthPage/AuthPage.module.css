@@ -1,0 +1,31 @@
+.authCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-size: var(--title);
+  margin-bottom: 1rem;
+}
+
+.form {
+  min-height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5vh;
+}
+
+.formButton {
+  width: 50%;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  background: var(--secondary-color);
+  font-size: var(--title);
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+}

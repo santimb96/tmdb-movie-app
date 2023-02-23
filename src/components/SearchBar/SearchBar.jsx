@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { SearchContext } from '../../contexts/SearchContext'
 import { AiOutlineSearch } from 'react-icons/ai'
 import styles from './SearchBar.module.css'

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { signUp, login } from '../../services/localStorage'
 import InputAuth from '../../components/InputAuth/InputAuth'
 import styles from './AuthPage.module.css'
 
@@ -12,15 +13,14 @@ const AuthPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleLogin = () => {
-    console.log('login')
+    login()
   }
   const handleSignUp = () => {
-    console.log('signup')
+    signUp()
   }
 
   return (
     <div className={styles.authCard}>
-      <h1 className={styles.title}>{isLogin ? 'LogIn' : 'SignUp'}</h1>
       <form className={styles.form} method="POST">
         <InputAuth
           labelName="Username"
@@ -31,7 +31,7 @@ const AuthPage = () => {
           placeholder="username"
         />
         <InputAuth
-          labelName="Password"
+          labelName="Password (at least 6 chars. and max. 12)"
           fieldType="password"
           fieldName="password"
           fieldValue={password}
@@ -40,7 +40,7 @@ const AuthPage = () => {
         />
         {!isLogin && (
           <InputAuth
-            labelName="Confirm Password"
+            labelName="Confirm password (at least 6 chars. and max. 12)"
             fieldType="password"
             fieldName="confirmPassword"
             fieldValue={confirmPassword}
@@ -55,7 +55,7 @@ const AuthPage = () => {
             isLogin ? handleLogin() : handleSignUp()
           }}
         >
-          {isLogin ? 'LogIn' : 'SignUp'}
+          {isLogin ? 'Login' : 'SignUp'}
         </button>
       </form>
     </div>

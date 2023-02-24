@@ -1,15 +1,10 @@
 .authCard {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   height: 57vh;
   width: 100%;
-}
-
-.title {
-  font-size: var(--title);
-  margin-bottom: 1rem;
 }
 
 .form {
@@ -22,6 +17,7 @@
 }
 
 .formButton {
+  cursor: pointer;
   width: 50%;
   text-transform: uppercase;
   color: var(--primary-color);

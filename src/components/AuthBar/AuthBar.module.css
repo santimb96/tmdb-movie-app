@@ -1,0 +1,46 @@
+.authBar {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 1.5rem;
+}
+
+.login,
+.signUp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+}
+
+.login > svg,
+.signUp > svg {
+  font-size: var(--text);
+}
+
+.login > a,
+.signUp > a {
+  text-decoration: none;
+}
+.login > a,
+.login > svg {
+  color: var(--secondary-color);
+}
+
+.signUp {
+  background: var(--secondary-color);
+}
+.signUp > a,
+.signUp > svg {
+  color: var(--primary-color);
+}
+
+.authLink {
+  background: var(--secondary-color);
+  text-align: center;
+  color: var(--primary-color);
+}

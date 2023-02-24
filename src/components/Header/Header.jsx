@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import SearchBar from '../SearchBar/SearchBar'
+import AuthBar from '../AuthBar/AuthBar'
 import styles from './Header.module.css'
 const Header = () => {
   const location = useLocation()
@@ -9,6 +10,7 @@ const Header = () => {
     <>
       <div className={styles.header}>
         <div className={styles.content}>
+          <AuthBar />
           <img src="img/tmdbLogo.svg" alt="tmdbLogo" />
           {isHome && <SearchBar />}
         </div>

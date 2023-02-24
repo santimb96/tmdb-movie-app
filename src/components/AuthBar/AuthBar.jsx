@@ -30,9 +30,9 @@ const AuthBar = () => {
           </div>
           {menu && (
             <div className={styles.menu}>
-              <Link to="/favorites">
+              <Link to={location.pathname === '/' ? '/favorites' : '/'}>
                 <MdOutlineFavorite />
-                Favorites
+                {location.pathname === '/' ? 'Favorites' : 'Home'}
               </Link>
               <p onClick={() => handleLogOut()}>
                 <AiOutlineLogout />

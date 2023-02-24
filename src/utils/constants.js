@@ -38,4 +38,6 @@ const COLORS = [
 
 const PAGES_LIMIT = 20
 
-export { MONTHS, COLORS, PAGES_LIMIT }
+const NO_AUTH_PATHS = ['/', '/favorites']
+
+export { MONTHS, COLORS, PAGES_LIMIT, NO_AUTH_PATHS }

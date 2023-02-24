@@ -5,7 +5,7 @@ import styles from './FavButton.module.css'
 const FavButton = ({ film, handleFavorite, isFav }) => {
   return (
     <button onClick={() => handleFavorite(film)} className={styles.fav}>
-      {isFav() ? <MdOutlineFavorite /> : <MdOutlineFavoriteBorder />}
+      {isFav ? <MdOutlineFavorite /> : <MdOutlineFavoriteBorder />}
     </button>
   )
 }

@@ -7,8 +7,7 @@ import FavButton from '../FavButton/FavButton'
 
 const FilmCard = ({ film }) => {
   const { user, setUser } = useContext(UserContext)
-  const isFav = () =>
-    user?.favorites?.find((favorite) => favorite?.id === film?.id)
+  const isFav = user?.favorites?.find((favorite) => favorite?.id === film?.id)
 
   const handleFavorite = (favFilm) => setUser(setFavorite(user, favFilm))
 

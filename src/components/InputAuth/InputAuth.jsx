@@ -11,7 +11,7 @@ const InputAuth = ({
   placeholder = 'some placeholder information',
 }) => {
   const [isShow, setIsShow] = useState(false)
-
+  const isPassword = fieldName.toLowerCase().includes('password')
   return (
     <>
       <label className={styles.formLabel} htmlFor={fieldName}>
@@ -21,6 +21,7 @@ const InputAuth = ({
         <input
           className={styles.formInput}
           placeholder={placeholder}
+          maxLength={isPassword ? '12' : '10'}
           value={fieldValue}
           type={isShow ? 'text' : fieldType}
           id={fieldName}
@@ -29,7 +30,7 @@ const InputAuth = ({
             setField(e.target.value)
           }}
         />
-        {fieldName.toLowerCase().includes('password') &&
+        {isPassword &&
           (!isShow ? (
             <AiFillEyeInvisible onClick={() => setIsShow(!isShow)} />
           ) : (

@@ -8,6 +8,7 @@ import { GoTriangleDown } from 'react-icons/go'
 import { MdOutlineFavorite } from 'react-icons/md'
 import { AiOutlineLogout } from 'react-icons/ai'
 import styles from './AuthBar.module.css'
+
 const AuthBar = () => {
   const { user, setUser } = useContext(UserContext)
 

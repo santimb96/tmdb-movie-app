@@ -35,7 +35,7 @@ const AuthPage = () => {
     <div className={styles.authCard}>
       <form className={styles.form} method="POST">
         <InputAuth
-          labelName="Username"
+          labelName="Username (max. characters: 9)"
           fieldType="text"
           fieldName="username"
           fieldValue={username}

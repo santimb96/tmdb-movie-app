@@ -54,4 +54,25 @@ const createOrGetUserList = () => {
   return localStorage.getItem('users')
 }
 
-export { signUp, login, logOut }
+const setFavorite = (user, film) => {
+  console.info(user, film)
+  const userList = JSON.parse(createOrGetUserList())
+  const userExist = userList.find((u) => u?.username === user?.username)
+  const favoriteExist = userExist?.favorites?.find(
+    (favorite) => favorite?.id === film?.id,
+  )
+  if (userExist && !favoriteExist) {
+    userExist.favorites.push(film)
+    localStorage.setItem('users', JSON.stringify(userList))
+  }
+  if (favoriteExist) {
+    userExist['favorites'] = userExist.favorites.filter(
+      (favorite) => favorite?.id !== film?.id,
+    )
+    localStorage.setItem('users', JSON.stringify(userList))
+  }
+
+  return userExist
+}
+
+export { signUp, login, logOut, setFavorite }

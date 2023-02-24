@@ -1,5 +1,10 @@
 const signUp = (
-  user = { username: 'santimb96', password: '1234', favorites: [] },
+  user = {
+    username: 'santimb96',
+    password: '1234',
+    favorites: [],
+    logged: false,
+  },
 ) => {
   const userList = JSON.parse(createOrGetUserList())
 
@@ -15,9 +20,15 @@ const login = (user = { username: 'santimb96', password: '1234' }) => {
   const userList = JSON.parse(createOrGetUserList())
   const userExist = checkIfUserExist(userList, user)
   if (!userExist || !checkPassword(userExist, user)) {
-    return false
+    return null
   }
-  return true
+
+  if (!userExist?.logged) {
+    userExist['logged'] = true
+    localStorage.setItem('users', JSON.stringify(userList))
+  }
+  console.info(userExist)
+  return userExist
 }
 
 const checkIfUserExist = (userList, user) =>

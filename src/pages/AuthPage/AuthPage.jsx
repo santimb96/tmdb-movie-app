@@ -13,10 +13,13 @@ const AuthPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleLogin = () => {
-    login()
+    return login({ username, password })
   }
   const handleSignUp = () => {
-    signUp()
+    if (password === confirmPassword) {
+      return signUp({ username, password, favorites: [], logged: false })
+    }
+    return alert('Passwords do not match')
   }
 
   return (

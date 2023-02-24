@@ -6,7 +6,10 @@
 }
 
 .login,
-.signUp {
+.signUp,
+.user {
+  position: relative;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -17,13 +20,16 @@
   padding: 0.1rem 0.5rem 0.1rem 0.5rem;
 }
 
-.login > svg,
-.signUp > svg {
+svg {
   font-size: var(--text);
 }
 
-.login > a,
-.signUp > a {
+a,
+a:visited,
+a:active,
+a:hover,
+a:focus,
+a:link {
   text-decoration: none;
 }
 .login > a,
@@ -43,4 +49,51 @@
   background: var(--secondary-color);
   text-align: center;
   color: var(--primary-color);
+}
+
+.user {
+  text-align: center;
+  color: var(--secondary-color);
+  width: 8rem;
+}
+
+.user > p {
+  margin: 0;
+}
+
+.menu {
+  z-index: 999;
+  background: var(--secondary-color);
+  width: 9rem;
+  min-height: fit-content;
+  position: absolute;
+  top: 1.55rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 5px 5px;
+}
+
+.menu > a,
+.menu > p {
+  font-size: var(--text);
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  color: var(--primary-color);
+}
+.menu > a,
+.menu > p {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  place-items: center;
+  /* gap: 2rem; */
+}
+.menu > p {
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
 }

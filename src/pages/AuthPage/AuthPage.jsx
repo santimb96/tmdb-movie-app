@@ -1,10 +1,13 @@
-import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useState, useContext } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { signUp, login } from '../../services/localStorage'
+import { UserContext } from '../../contexts/UserContext'
 import InputAuth from '../../components/InputAuth/InputAuth'
 import styles from './AuthPage.module.css'
 
 const AuthPage = () => {
+  const navigate = useNavigate()
+  const { setUser } = useContext(UserContext)
   const location = useLocation()
   const isLogin = location.pathname === '/login' ? true : false
 
@@ -13,11 +16,17 @@ const AuthPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleLogin = () => {
-    return login({ username, password })
+    const isLogged = login({ username, password })
+    if (!isLogged) {
+      return alert('Wrong username or password')
+    }
+    setUser(isLogged)
+    return navigate('/')
   }
   const handleSignUp = () => {
     if (password === confirmPassword) {
-      return signUp({ username, password, favorites: [], logged: false })
+      signUp({ username, password, favorites: [], logged: false })
+      return navigate('/login')
     }
     return alert('Passwords do not match')
   }

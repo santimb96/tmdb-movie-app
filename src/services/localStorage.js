@@ -31,6 +31,17 @@ const login = (user = { username: 'santimb96', password: '1234' }) => {
   return userExist
 }
 
+const logOut = (user) => {
+  const userList = JSON.parse(createOrGetUserList())
+  const userExist = userList.find((u) => u?.username === user?.username)
+  if (userExist) {
+    userExist['logged'] = false
+    localStorage.setItem('users', JSON.stringify(userList))
+  }
+
+  return { username: '', password: '', favorites: [], logged: false }
+}
+
 const checkIfUserExist = (userList, user) =>
   userList.find((u) => u.username === user.username)
 
@@ -43,4 +54,4 @@ const createOrGetUserList = () => {
   return localStorage.getItem('users')
 }
 
-export { signUp, login }
+export { signUp, login, logOut }

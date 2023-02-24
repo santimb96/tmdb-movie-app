@@ -67,7 +67,7 @@ a:link {
   width: 9rem;
   min-height: fit-content;
   position: absolute;
-  top: 1.55rem;
+  top: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,7 +89,6 @@ a:link {
   display: grid;
   grid-template-columns: 30% 70%;
   place-items: center;
-  /* gap: 2rem; */
 }
 .menu > p {
   margin: 0;

@@ -1,5 +1,5 @@
 .list {
-  margin-top: 5vh;
+  margin-top: 10vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;

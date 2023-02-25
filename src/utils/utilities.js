@@ -10,6 +10,8 @@ const getColorFromAverage = (average) => {
   return color?.color
 }
 
+const roundNumber = (average) => average?.toFixed(1)
+
 const checkIfPasswordsAreEqual = (password, confirmPassword) =>
   password === confirmPassword
 
@@ -21,4 +23,5 @@ export {
   getColorFromAverage,
   checkIfPasswordsAreEqual,
   checkPasswordPattern,
+  roundNumber,
 }

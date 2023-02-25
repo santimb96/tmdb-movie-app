@@ -11,3 +11,9 @@
   width: 90vw;
   padding-bottom: 5vh;
 }
+
+@media (min-width: 768px) {
+  .container {
+    width: 80vw;
+  }
+}

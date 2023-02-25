@@ -1,5 +1,5 @@
 .fav {
-  cursor: pointer;
+  /* cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +10,22 @@
   border-radius: 50%;
   position: absolute;
   left: 75%;
-  top: 58%;
+  top: 58%; */
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.fav:hover {
+  background: none;
 }
 
 .fav > svg {
+  transition: all 0.3s ease-in-out;
   font-size: var(--icon);
-  color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.fav > svg:hover {
+  color: var(--detail-color);
 }

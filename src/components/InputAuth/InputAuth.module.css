@@ -11,13 +11,13 @@
 
 .inputContainer {
   width: 95%;
+  height: 3rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--input-border-color);
   border-radius: 5px;
-  height: 2rem;
 }
 .inputContainer > svg {
   color: var(--secondary-color);
@@ -25,6 +25,8 @@
   padding-right: 0.5rem;
 }
 .formInput {
+  height: 100%;
+  font-size: var(--text);
   caret-color: var(--secondary-color);
   opacity: 0.5;
   padding-left: 0.5rem;
@@ -34,3 +36,12 @@
   outline: none;
   border: none;
 }
+/* 
+@media (min-width: 1024px) {
+  .formInput {
+    height: 100%;
+  }
+  .inputContainer {
+    height: 3rem;
+  }
+} */

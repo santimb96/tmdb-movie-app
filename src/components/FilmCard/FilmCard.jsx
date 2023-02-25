@@ -1,9 +1,13 @@
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
-import { formatDate, getColorFromAverage } from '../../utils/utilities'
+import {
+  formatDate,
+  getColorFromAverage,
+  roundNumber,
+} from '../../utils/utilities'
 import { setFavorite } from '../../services/localStorage'
-import styles from './FilmCard.module.css'
 import FavButton from '../FavButton/FavButton'
+import styles from './FilmCard.module.css'
 
 const FilmCard = ({ film }) => {
   const { user, setUser } = useContext(UserContext)
@@ -18,7 +22,9 @@ const FilmCard = ({ film }) => {
         src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
         alt={film?.title}
       />
-      <FavButton film={film} handleFavorite={handleFavorite} isFav={isFav} />
+      {/* <div className={styles.favContainer}>
+        <FavButton film={film} handleFavorite={handleFavorite} isFav={isFav} />
+      </div> */}
       <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
       <div className={styles.info}>
         <p className={styles.releaseDate}>
@@ -28,8 +34,9 @@ const FilmCard = ({ film }) => {
           className={styles.voteAverage}
           style={{ backgroundColor: getColorFromAverage(+film?.vote_average) }}
         >
-          {film?.vote_average}
+          {roundNumber(+film?.vote_average)}
         </p>
+        <FavButton film={film} handleFavorite={handleFavorite} isFav={isFav} />
       </div>
     </div>
   )

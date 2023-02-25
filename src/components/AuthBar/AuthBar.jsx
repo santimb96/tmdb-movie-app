@@ -44,12 +44,14 @@ const AuthBar = () => {
       ) : (
         <>
           <div className={styles.login}>
-            <GiPadlock />
-            <Link to="/login">Login</Link>
+            <Link to="/login">
+              <GiPadlock /> Login
+            </Link>
           </div>
           <div className={styles.signUp}>
-            <GiPadlock />
-            <Link to="/signup">SignUp</Link>
+            <Link to="/signup">
+              <GiPadlock /> SignUp
+            </Link>
           </div>
         </>
       )}

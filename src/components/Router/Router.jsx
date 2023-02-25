@@ -7,13 +7,15 @@ import Favorites from '../../pages/Favorites/Favorites'
 import AuthPage from '../../pages/AuthPage/AuthPage'
 
 const Router = () => {
-  const { user, setUser } = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
 
   useEffect(() => {
-    const userCookie = JSON.parse(
-      document.cookie.split('username=').pop().split(';')[0],
-    )
-    const isLogged = autoLogin(userCookie)
+    const userCookie = document.cookie.split('username=').pop().split(';')[0]
+
+    if (!userCookie) {
+      return
+    }
+    const isLogged = autoLogin(JSON.parse(userCookie))
     if (isLogged) {
       setUser(isLogged)
     }

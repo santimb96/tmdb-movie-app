@@ -8,6 +8,7 @@ const UserProvider = ({ children }) => {
     password: '',
     favorites: [],
     logged: false,
+    accessToken: '',
   })
   return (
     <UserContext.Provider value={{ user, setUser }}>

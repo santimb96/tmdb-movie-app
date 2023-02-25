@@ -20,18 +20,18 @@
   padding: 0.1rem 0.5rem 0.1rem 0.5rem;
 }
 
+.login > a,
+.signUp > a {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 svg {
   font-size: var(--text);
 }
 
-a,
-a:visited,
-a:active,
-a:hover,
-a:focus,
-a:link {
-  text-decoration: none;
-}
 .login > a,
 .login > svg {
   color: var(--secondary-color);
@@ -62,6 +62,7 @@ a:link {
 }
 
 .menu {
+  transition: all 0.3s ease-in-out;
   z-index: 999;
   background: var(--secondary-color);
   width: 9rem;
@@ -95,4 +96,10 @@ a:link {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    top: 3.5rem;
+  }
 }

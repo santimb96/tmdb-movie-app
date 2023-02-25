@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 :root {
   /* FONTS */
 
-  --font-family: 'Roboto Slab', serif;
+  --font-family: 'Roboto', sans-serif, serif;
   /* COLORS */
 
   --text-color: black;
   --input-border-color: #ccc;
-  --detail-color: #88cda5;
+  --detail-color: #64f3f8;
   --primary-color: white;
   --secondary-color: #08b5e1;
 

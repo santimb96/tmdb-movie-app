@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
-import Router from './Router/Router'
+import Router from './components/Router/Router'
 import styles from './styles/App.module.css'
 
 const App = () => {

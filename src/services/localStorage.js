@@ -4,6 +4,7 @@ const signUp = (
     password: '1234',
     favorites: [],
     logged: false,
+    accessToken: '',
   },
 ) => {
   const userList = JSON.parse(createOrGetUserList())
@@ -25,9 +26,27 @@ const login = (user = { username: 'santimb96', password: '1234' }) => {
 
   if (!userExist?.logged) {
     userExist['logged'] = true
+    userExist['accessToken'] = createRandomNumber()
+    document.cookie = `username=${JSON.stringify({
+      username: userExist?.username,
+      access_token: userExist?.accessToken,
+    })}; path=/`
     localStorage.setItem('users', JSON.stringify(userList))
   }
   console.info(userExist)
+  return userExist
+}
+
+const autoLogin = (user) => {
+  const { username, access_token } = user
+  const userList = JSON.parse(createOrGetUserList())
+  const userExist = userList.find((u) => u?.username === username)
+
+  if (userExist?.accessToken !== access_token) {
+    return null
+  }
+  userExist['logged'] = true
+  localStorage.setItem('users', JSON.stringify(userList))
   return userExist
 }
 
@@ -36,10 +55,17 @@ const logOut = (user) => {
   const userExist = userList.find((u) => u?.username === user?.username)
   if (userExist) {
     userExist['logged'] = false
+    userExist['accessToken'] = ''
     localStorage.setItem('users', JSON.stringify(userList))
   }
 
-  return { username: '', password: '', favorites: [], logged: false }
+  return {
+    username: '',
+    password: '',
+    favorites: [],
+    logged: false,
+    accessToken: '',
+  }
 }
 
 const checkIfUserExist = (userList, user) =>
@@ -55,7 +81,6 @@ const createOrGetUserList = () => {
 }
 
 const setFavorite = (user, film) => {
-  console.info(user, film)
   const userList = JSON.parse(createOrGetUserList())
   const userExist = userList.find((u) => u?.username === user?.username)
   const favoriteExist = userExist?.favorites?.find(
@@ -75,4 +100,7 @@ const setFavorite = (user, film) => {
   return userExist
 }
 
-export { signUp, login, logOut, setFavorite }
+const createRandomNumber = (RANGE = 9999) =>
+  Math.floor(Math.random() * RANGE) + 1
+
+export { signUp, login, logOut, setFavorite, autoLogin }

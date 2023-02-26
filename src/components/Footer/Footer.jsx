@@ -23,7 +23,7 @@ const Footer = () => {
           {ICONS?.map((Icon, idx) => (
             <a
               className={styles.link}
-              key={idx}
+              key={Icon.link + '_' + idx}
               href={Icon.link}
               target="_blank"
             >

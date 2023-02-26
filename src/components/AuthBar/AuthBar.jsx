@@ -6,11 +6,12 @@ import { GiPadlock } from 'react-icons/gi'
 import { FaUserAlt } from 'react-icons/fa'
 import { GoTriangleDown } from 'react-icons/go'
 import { MdOutlineFavorite } from 'react-icons/md'
-import { AiOutlineLogout } from 'react-icons/ai'
+import { AiOutlineLogout, AiFillHome } from 'react-icons/ai'
 import styles from './AuthBar.module.css'
 
 const AuthBar = () => {
   const { user, setUser } = useContext(UserContext)
+  const path = location.pathname
 
   const [menu, setMenu] = useState(false)
 
@@ -30,9 +31,18 @@ const AuthBar = () => {
           </div>
           {menu && (
             <div className={styles.menu}>
-              <Link to={location.pathname === '/' ? '/favorites' : '/'}>
-                <MdOutlineFavorite />
-                {location.pathname === '/' ? 'Favorites' : 'Home'}
+              <Link to={path === '/' ? '/favorites' : '/'}>
+                {path === '/' ? (
+                  <>
+                    <MdOutlineFavorite />
+                    Favorites
+                  </>
+                ) : (
+                  <>
+                    <AiFillHome />
+                    Home
+                  </>
+                )}
               </Link>
               <p onClick={() => handleLogOut()}>
                 <AiOutlineLogout />

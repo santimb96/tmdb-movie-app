@@ -1,4 +1,6 @@
 .card {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   position: relative;
   min-width: 90%;
   min-height: 100%;
@@ -60,5 +62,8 @@
   .card {
     min-width: 0;
     width: fit-content;
+  }
+  .card:hover {
+    transform: translateY(-10px);
   }
 }

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { logOut } from '../../services/localStorage'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { GiPadlock } from 'react-icons/gi'
 import { FaUserAlt } from 'react-icons/fa'
 import { GoTriangleDown } from 'react-icons/go'
@@ -12,12 +12,14 @@ import styles from './AuthBar.module.css'
 const AuthBar = () => {
   const { user, setUser } = useContext(UserContext)
   const path = location.pathname
+  const navigate = useNavigate()
 
   const [menu, setMenu] = useState(false)
 
   const handleLogOut = () => {
     setMenu(false)
-    return setUser(logOut(user))
+    setUser(logOut(user))
+    return navigate('/')
   }
 
   return (
@@ -30,7 +32,7 @@ const AuthBar = () => {
             <GoTriangleDown />
           </div>
           {menu && (
-            <div className={styles.menu}>
+            <div className={styles.menu} onClick={() => setMenu(false)}>
               <Link to={path === '/' ? '/favorites' : '/'}>
                 {path === '/' ? (
                   <>

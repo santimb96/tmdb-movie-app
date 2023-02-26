@@ -1,13 +1,14 @@
 .app {
-  display: grid;
-  grid-template-columns: 100%;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
 }
 .container {
-  margin-top: 22vh;
+  margin-top: 25vh;
   overflow-y: hidden;
   position: relative;
-  min-height: fit-content;
+  min-height: 60vh;
   width: 90vw;
   padding-bottom: 5vh;
 }

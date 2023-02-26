@@ -21,26 +21,40 @@ const Film = () => {
   }, [])
   return (
     <div className={styles.card}>
-      <img
-        className={styles.poster}
-        src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
-        alt={film?.title}
-      />
-      <div className={styles.content}>
-        <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
+      <div className={styles.minimalInfo}>
+        <img
+          className={styles.poster}
+          src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
+          alt={film?.title}
+        />
         <div className={styles.info}>
-          <p className={styles.releaseDate}>
-            {formatDate(new Date(film?.release_date || film?.first_air_date))}
-          </p>
-          <p
-            className={styles.voteAverage}
-            style={{
-              backgroundColor: getColorFromAverage(+film?.vote_average),
-            }}
-          >
-            {roundNumber(+film?.vote_average)}
-          </p>
+          <div className={styles.data}>
+            <p className={styles.releaseDate}>
+              {formatDate(new Date(film?.release_date || film?.first_air_date))}
+            </p>
+            <p
+              className={styles.voteAverage}
+              style={{
+                backgroundColor: getColorFromAverage(+film?.vote_average),
+              }}
+            >
+              {roundNumber(+film?.vote_average)}
+            </p>
+          </div>
+          <div className={styles.genres}>
+            {film?.genres?.map((genre) => (
+              <p key={genre?.name} className={styles.genre}>
+                {genre?.name}
+              </p>
+            ))}
+          </div>
+          <div className={styles.productionCountry}>
+            <p>{film?.production_countries[0]?.name}</p>
+          </div>
         </div>
+      </div>
+      <div className={styles.overview}>
+        <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
       </div>
     </div>
   )

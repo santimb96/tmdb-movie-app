@@ -5,6 +5,7 @@ import { autoLogin } from '../../services/localStorage'
 import Home from '../../pages/Home/Home'
 import Favorites from '../../pages/Favorites/Favorites'
 import AuthPage from '../../pages/AuthPage/AuthPage'
+import Film from '../../pages/Film/Film'
 
 const Router = () => {
   const { setUser } = useContext(UserContext)
@@ -27,7 +28,7 @@ const Router = () => {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/signup" element={<AuthPage />} />
         <Route path="/favorites" element={<Favorites />} />
-        {/* <Route path="/search/:id" element={<Film />} /> */}
+        <Route path="/search/:id" element={<Film />} />
       </Routes>
     </>
   )

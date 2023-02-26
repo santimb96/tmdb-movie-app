@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
+import { useNavigate } from 'react-router-dom'
 import {
   formatDate,
   getColorFromAverage,
@@ -10,21 +11,24 @@ import FavButton from '../FavButton/FavButton'
 import styles from './FilmCard.module.css'
 
 const FilmCard = ({ film }) => {
+  const navigate = useNavigate()
   const { user, setUser } = useContext(UserContext)
   const isFav = user?.favorites?.find((favorite) => favorite?.id === film?.id)
 
   const handleFavorite = (favFilm) => setUser(setFavorite(user, favFilm))
-
+  const handleFilmInformation = (filmId) => {
+    return navigate(`/search/${filmId}`)
+  }
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      onClick={() => handleFilmInformation(film?.id)}
+    >
       <img
         className={styles.poster}
         src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
         alt={film?.title}
       />
-      {/* <div className={styles.favContainer}>
-        <FavButton film={film} handleFavorite={handleFavorite} isFav={isFav} />
-      </div> */}
       <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
       <div className={styles.info}>
         <p className={styles.releaseDate}>

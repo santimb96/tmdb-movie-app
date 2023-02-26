@@ -1,0 +1,12 @@
+.card {
+  height: 53vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+.poster {
+  min-height: 200px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}

@@ -20,4 +20,15 @@ const getFilmByTitle = (title = 'harry potter', page = 1) => {
     .catch((error) => error)
 }
 
-export { getFilms, getFilmByTitle }
+const getFilmById = (id = 1) => {
+  return fetch(
+    `${import.meta.env.VITE_API_URL}/movie/${id}?api_key=${
+      import.meta.env.VITE_API_KEY
+    }&language=en-US`,
+  )
+    .then((response) => response.json())
+    .then((data) => data)
+    .catch((error) => error)
+}
+
+export { getFilms, getFilmByTitle, getFilmById }

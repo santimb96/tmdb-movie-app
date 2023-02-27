@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { signUp, login } from '../../services/localStorage'
 import { UserContext } from '../../contexts/UserContext'
+import { checkPasswordPattern } from '../../utils/utilities'
 import InputAuth from '../../components/InputAuth/InputAuth'
 import styles from './AuthPage.module.css'
 
@@ -16,6 +17,9 @@ const AuthPage = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleLogin = () => {
+    if (!checkPasswordPattern(password)) {
+      return alert('Password must have at least 1 mayus, 1 minus and 1 number.')
+    }
     const isLogged = login({ username, password })
     if (!isLogged) {
       return alert('Wrong username or password')
@@ -24,6 +28,9 @@ const AuthPage = () => {
     return navigate('/')
   }
   const handleSignUp = () => {
+    if (!checkPasswordPattern(password)) {
+      return alert('Password must have at least 1 mayus, 1 minus and 1 number.')
+    }
     if (password === confirmPassword) {
       signUp({ username, password, favorites: [], logged: false })
       return navigate('/login')
@@ -67,7 +74,7 @@ const AuthPage = () => {
             isLogin ? handleLogin() : handleSignUp()
           }}
         >
-          {isLogin ? 'Login' : 'SignUp'}
+          {isLogin ? 'Sign in' : 'Sign up'}
         </button>
       </form>
     </div>

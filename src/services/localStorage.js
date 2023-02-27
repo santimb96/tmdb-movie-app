@@ -1,3 +1,5 @@
+import { hashPassword, comparePassword } from './authUtilities'
+
 const signUp = (
   user = {
     username: 'santimb96',
@@ -12,6 +14,8 @@ const signUp = (
   if (checkIfUserExist(userList, user)) {
     return false
   }
+  console.log(hashPassword(user?.password))
+  user['password'] = hashPassword(user?.password)
   userList.push(user)
   localStorage.setItem('users', JSON.stringify(userList))
   return true
@@ -20,7 +24,7 @@ const signUp = (
 const login = (user = { username: 'santimb96', password: '1234' }) => {
   const userList = JSON.parse(createOrGetUserList())
   const userExist = checkIfUserExist(userList, user)
-  if (!userExist || !checkPassword(userExist, user)) {
+  if (!userExist || !checkPassword(user, userExist)) {
     return null
   }
 
@@ -33,7 +37,7 @@ const login = (user = { username: 'santimb96', password: '1234' }) => {
     })}; path=/`
     localStorage.setItem('users', JSON.stringify(userList))
   }
-  console.info(userExist)
+  delete userExist?.password
   return userExist
 }
 
@@ -47,6 +51,7 @@ const autoLogin = (user) => {
   }
   userExist['logged'] = true
   localStorage.setItem('users', JSON.stringify(userList))
+  delete userExist?.password
   return userExist
 }
 
@@ -71,7 +76,8 @@ const logOut = (user) => {
 const checkIfUserExist = (userList, user) =>
   userList.find((u) => u.username === user.username)
 
-const checkPassword = (userExist, user) => userExist.password === user.password
+const checkPassword = (user, userExist) =>
+  comparePassword(user?.password, userExist?.password)
 
 const createOrGetUserList = () => {
   if (localStorage.getItem('users') === null) {

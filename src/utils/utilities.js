@@ -16,7 +16,7 @@ const checkIfPasswordsAreEqual = (password, confirmPassword) =>
   password === confirmPassword
 
 const checkPasswordPattern = (password) =>
-  /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,12}$/.text(password)
+  /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,12}$/.test(password)
 
 export {
   formatDate,

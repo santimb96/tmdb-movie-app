@@ -66,6 +66,7 @@
 }
 
 .description {
+  overflow-y: scroll;
   margin: 0;
   width: 100%;
   white-space: normal;

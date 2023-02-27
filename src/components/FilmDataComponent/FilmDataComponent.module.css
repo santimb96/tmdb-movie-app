@@ -5,6 +5,7 @@
 }
 
 .dataList {
+  font-size: var(--tag);
   min-height: fit-content;
   margin: 0.3rem 0 0.3rem 0;
   display: flex;

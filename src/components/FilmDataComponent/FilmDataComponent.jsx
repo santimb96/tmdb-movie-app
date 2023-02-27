@@ -4,12 +4,7 @@ const FilmDataComponent = ({ subtitle, list, outputField, length }) => {
   return (
     <>
       <h3 className={styles.subtitle}>{subtitle}</h3>
-      <div
-        className={styles.dataList}
-        style={{
-          fontSize: `${length > 2 ? 'var(--tag)' : 'var(--text)'}`,
-        }}
-      >
+      <div className={styles.dataList}>
         {list?.map((element) => (
           <p
             key={element[outputField]}

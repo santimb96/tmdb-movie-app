@@ -6,12 +6,21 @@ import {
   getColorFromAverage,
   roundNumber,
 } from '../../utils/utilities'
+import FilmDataComponent from '../../components/FilmDataComponent/FilmDataComponent'
 import styles from './Film.module.css'
 const Film = () => {
   const { id } = useParams()
   const [film, setFilm] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+
+  const customList = [
+    {
+      field: formatDate(new Date(film?.release_date || film?.first_air_date)),
+      isAverage: false,
+    },
+    { field: roundNumber(+film?.vote_average), isAverage: true },
+  ]
 
   useEffect(() => {
     Promise.resolve(getFilmById(id))
@@ -28,28 +37,44 @@ const Film = () => {
           alt={film?.title}
         />
         <div className={styles.info}>
-          <div className={styles.data}>
-            <p className={styles.releaseDate}>
-              {formatDate(new Date(film?.release_date || film?.first_air_date))}
-            </p>
-            <p
-              className={styles.voteAverage}
-              style={{
-                backgroundColor: getColorFromAverage(+film?.vote_average),
-              }}
-            >
-              {roundNumber(+film?.vote_average)}
-            </p>
-          </div>
-          <div className={styles.genres}>
-            {film?.genres?.map((genre) => (
-              <p key={genre?.name} className={styles.genre}>
-                {genre?.name}
-              </p>
-            ))}
-          </div>
-          <div className={styles.productionCountry}>
-            <p>{film?.production_countries[0]?.name}</p>
+          <FilmDataComponent
+            subtitle={'Release date and score'}
+            list={customList}
+            outputField={'field'}
+            length={customList?.length}
+          />
+          <FilmDataComponent
+            subtitle={'Genres'}
+            list={film?.genres}
+            outputField={'name'}
+            length={film?.genres?.length}
+          />
+          <FilmDataComponent
+            subtitle={'Production country'}
+            list={film?.production_countries}
+            outputField={'name'}
+            length={film?.production_countries?.length}
+          />
+          <FilmDataComponent
+            subtitle={'Languages'}
+            list={film?.spoken_languages}
+            outputField={'iso_639_1'}
+            length={film?.spoken_languages?.length}
+          />
+          <h3 className={styles.subtitle}>Company</h3>
+          <div className={styles.company}>
+            {film?.production_companies?.map((company, idx) => {
+              if (idx === 0 && company?.logo_path) {
+                return (
+                  <img
+                    key={company?.id}
+                    className={styles.logo}
+                    src={`https://image.tmdb.org/t/p/w500${company?.logo_path}`}
+                    alt={company?.name}
+                  />
+                )
+              }
+            })}
           </div>
         </div>
       </div>

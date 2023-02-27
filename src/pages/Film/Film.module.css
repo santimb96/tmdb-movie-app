@@ -1,5 +1,5 @@
 .card {
-  height: 53vh;
+  height: 60vh;
   width: 100%;
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -21,12 +21,14 @@
 }
 
 .poster {
-  min-height: 200px;
+  max-width: 185px;
+  max-height: 280px;
   width: 100%;
   border-radius: 10px;
 }
 
 .title {
+  margin: 0.3rem 0 0 0;
   text-align: center;
   font-size: var(--title);
 }
@@ -51,7 +53,7 @@
 
 .overview {
   width: 100%;
-  height: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -69,7 +71,36 @@
   overflow-y: scroll;
   margin: 0;
   width: 100%;
+  height: fit-content;
   white-space: normal;
   word-wrap: break-word;
   font-size: var(--text);
+}
+
+@media (min-width: 768px) {
+  .card {
+    min-height: fit-content;
+    grid-template-rows: 1fr;
+  }
+  .poster {
+    max-height: 450px;
+    max-width: 300px;
+  }
+  .poster {
+    align-self: start;
+  }
+}
+@media (min-width: 1024px) {
+  .company {
+    justify-content: start;
+  }
+  .logo {
+    min-width: 0;
+    /* max-width: 100%; */
+    height: 50px;
+  }
+  .minimalInfo {
+    grid-template-columns: 30% 69%;
+    gap: 1%;
+  }
 }

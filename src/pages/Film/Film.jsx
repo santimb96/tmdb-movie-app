@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getFilmById } from '../../services/getData'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import {
   formatDate,
   getColorFromAverage,
@@ -9,6 +10,8 @@ import {
 import FilmDataComponent from '../../components/FilmDataComponent/FilmDataComponent'
 import styles from './Film.module.css'
 const Film = () => {
+  const match = useMediaQuery('(min-width:768px)')
+
   const { id } = useParams()
   const [film, setFilm] = useState({})
   const [loading, setLoading] = useState(true)
@@ -76,13 +79,28 @@ const Film = () => {
               }
             })}
           </div>
+          {match && (
+            <div className={styles.overview}>
+              <h1 className={styles.title}>
+                {film?.title || film?.original_name}
+              </h1>
+              {film?.tagline && (
+                <h2 className={styles.tagline}>"{film?.tagline}"</h2>
+              )}
+              <p className={styles.description}>{film?.overview}</p>
+            </div>
+          )}
         </div>
       </div>
-      <div className={styles.overview}>
-        <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
-        {film?.tagline && <h2 className={styles.tagline}>"{film?.tagline}"</h2>}
-        <p className={styles.description}>{film?.overview}</p>
-      </div>
+      {!match && (
+        <div className={styles.overview}>
+          <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
+          {film?.tagline && (
+            <h2 className={styles.tagline}>"{film?.tagline}"</h2>
+          )}
+          <p className={styles.description}>{film?.overview}</p>
+        </div>
+      )}
     </div>
   )
 }

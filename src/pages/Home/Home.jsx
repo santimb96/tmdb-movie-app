@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react'
 import { SearchContext } from '../../contexts/SearchContext'
 import List from '../../components/List/List'
 import Pager from '../../components/Pager/Pager'
+import Loader from '../../components/Loader/Loader'
 import { getFilms, getFilmByTitle } from '../../services/getData'
-import styles from './Home.module.css'
 
 const Home = () => {
   const { search } = useContext(SearchContext)
@@ -43,8 +43,14 @@ const Home = () => {
 
   return (
     <>
-      <List list={films} />
-      <Pager pages={totalPages} setPage={setPage} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <List list={films} />
+          <Pager pages={totalPages} setPage={setPage} />
+        </>
+      )}
     </>
   )
 }

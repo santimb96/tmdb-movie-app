@@ -5,6 +5,7 @@ import { UserContext } from '../../contexts/UserContext'
 import { checkPasswordPattern } from '../../utils/utilities'
 import InputAuth from '../../components/InputAuth/InputAuth'
 import styles from './AuthPage.module.css'
+import Loader from '../../components/Loader/Loader'
 
 const AuthPage = () => {
   const navigate = useNavigate()
@@ -15,26 +16,35 @@ const AuthPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = () => {
+    setLoading(true)
     if (!checkPasswordPattern(password)) {
+      setLoading(false)
       return alert('Password must have at least 1 mayus, 1 minus and 1 number.')
     }
     const isLogged = login({ username, password })
     if (!isLogged) {
+      setLoading(false)
       return alert('Wrong username or password')
     }
+    setLoading(false)
     setUser(isLogged)
     return navigate('/')
   }
   const handleSignUp = () => {
+    setLoading(true)
     if (!checkPasswordPattern(password)) {
+      setLoading(false)
       return alert('Password must have at least 1 mayus, 1 minus and 1 number.')
     }
     if (password === confirmPassword) {
       signUp({ username, password, favorites: [], logged: false })
+      setLoading(false)
       return navigate('/login')
     }
+    setLoading(false)
     return alert('Passwords do not match')
   }
 
@@ -68,13 +78,14 @@ const AuthPage = () => {
           />
         )}
         <button
+          disabled={loading}
           className={styles.formButton}
           type="button"
           onClick={() => {
             isLogin ? handleLogin() : handleSignUp()
           }}
         >
-          {isLogin ? 'Sign in' : 'Sign up'}
+          {loading ? <Loader /> : isLogin ? 'Sign in' : 'Sign up'}
         </button>
       </form>
     </div>

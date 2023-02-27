@@ -49,6 +49,26 @@
   height: 25px;
 }
 
-.voteAverage {
-  color: var(--primary-color);
+.overview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+.tagline {
+  font-weight: bolder;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+  font-size: var(--text);
+  font-style: italic;
+}
+
+.description {
+  margin: 0;
+  width: 85%;
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: var(--text);
 }

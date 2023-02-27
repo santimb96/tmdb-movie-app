@@ -80,6 +80,8 @@ const Film = () => {
       </div>
       <div className={styles.overview}>
         <h1 className={styles.title}>{film?.title || film?.original_name}</h1>
+        {film?.tagline && <h2 className={styles.tagline}>"{film?.tagline}"</h2>}
+        <p className={styles.description}>{film?.overview}</p>
       </div>
     </div>
   )

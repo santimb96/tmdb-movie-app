@@ -109,4 +109,15 @@ const setFavorite = (user, film) => {
 const createRandomNumber = (RANGE = 9999) =>
   Math.floor(Math.random() * RANGE) + 1
 
-export { signUp, login, logOut, setFavorite, autoLogin }
+const setCookieAgreement = () => localStorage.setItem('cookieAgreement', true)
+const getCookieAgreement = () => localStorage.getItem('cookieAgreement')
+
+export {
+  signUp,
+  login,
+  logOut,
+  setFavorite,
+  autoLogin,
+  setCookieAgreement,
+  getCookieAgreement,
+}

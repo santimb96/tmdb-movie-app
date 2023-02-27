@@ -1,0 +1,45 @@
+dialog:not([open]) {
+  display: none;
+}
+
+.modal {
+  min-width: 50%;
+  min-height: 25%;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.title svg {
+  font-size: var(--icon);
+  color: var(--cookie-color);
+}
+
+.description {
+  font-size: var(--text);
+  text-align: center;
+  word-break: break-all;
+}
+.accept {
+  font-size: var(--text);
+  width: 200px;
+  max-width: 50%;
+  border: none;
+  border-radius: 5px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 0.5rem;
+}
+:is(.accept):focus {
+  outline: none;
+}

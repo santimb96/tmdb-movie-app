@@ -20,12 +20,10 @@ const FilmCard = ({ film }) => {
     return navigate(`/search/${filmId}`)
   }
   return (
-    <div
-      className={styles.card}
-      onClick={() => handleFilmInformation(film?.id)}
-    >
+    <div className={styles.card}>
       <img
         className={styles.poster}
+        onClick={() => handleFilmInformation(film?.id)}
         src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
         alt={film?.title}
       />

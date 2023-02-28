@@ -22,7 +22,7 @@ const FilmCard = ({ film }) => {
 
   const handleFavorite = (favFilm) => {
     const favorite = setFavorite(user, favFilm)
-    if (!setFavorite) {
+    if (!favorite) {
       setError(true)
       return setShowNotification(true)
     }

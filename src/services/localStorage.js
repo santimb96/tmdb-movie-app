@@ -92,6 +92,9 @@ const setFavorite = (user, film) => {
   const favoriteExist = userExist?.favorites?.find(
     (favorite) => favorite?.id === film?.id,
   )
+  if (!userExist) {
+    return false
+  }
   if (userExist && !favoriteExist) {
     try {
       userExist.favorites.push(film)

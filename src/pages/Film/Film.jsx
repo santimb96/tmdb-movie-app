@@ -75,7 +75,7 @@ const Film = () => {
                   if (idx === 0 && company?.logo_path) {
                     return (
                       <img
-                        key={company?.id}
+                        key={company?.name}
                         className={styles.logo}
                         src={`https://image.tmdb.org/t/p/w500${company?.logo_path}`}
                         alt={company?.name}

@@ -66,6 +66,7 @@ const AuthPage = () => {
           fieldValue={password}
           setField={setPassword}
           placeholder="passwordPassword123"
+          outlineColor={checkPasswordPattern(password) ? 'yellowgreen' : 'red'}
         />
         {!isLogin && (
           <InputAuth
@@ -75,6 +76,9 @@ const AuthPage = () => {
             fieldValue={confirmPassword}
             setField={setConfirmPassword}
             placeholder="passwordPassword123"
+            outlineColor={
+              checkPasswordPattern(confirmPassword) ? 'yellowgreen' : 'red'
+            }
           />
         )}
         <button

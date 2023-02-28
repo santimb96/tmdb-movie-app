@@ -9,6 +9,7 @@ const InputAuth = ({
   fieldValue,
   setField,
   placeholder = 'some placeholder information',
+  outlineColor = 'yellowgreen',
 }) => {
   const [isShow, setIsShow] = useState(false)
   const isPassword = fieldName.toLowerCase().includes('password')
@@ -17,7 +18,10 @@ const InputAuth = ({
       <label className={styles.formLabel} htmlFor={fieldName}>
         {labelName}
       </label>
-      <div className={styles.inputContainer}>
+      <div
+        className={styles.inputContainer}
+        style={{ border: isPassword && `1px solid ${outlineColor}` }}
+      >
         <input
           className={styles.formInput}
           placeholder={placeholder}

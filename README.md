@@ -1,4 +1,4 @@
-# [TDMB Movie App](https://tmdb-movie-app-santimb96.vercel.app)
+# [TDMB Movie App](https://tmdb-movie-app-santimb96.vercel.app) &middot; ![react](https://img.shields.io/badge/react-v18.2.0-informational) ![npm](https://img.shields.io/badge/npm-v9.0.5-informational) ![node](https://img.shields.io/badge/node-v16.17.0-informational) ![vercel](https://img.shields.io/badge/vercel-deployed-success)
 
 TMDB Movie App es una aplicación la cual pretende mostrar películas y guardarlas como favoritas siguiendo los siguientes principios:
 
@@ -60,3 +60,14 @@ Otras teconologías que se han usado son:
 - **GitHub:** Se utiliza para el control de versiones del proyecto, así como repositorio para el despliegue de la aplicación.
 
 - **TMDB API:** Se usa para obtener la información de las películas. Es una _API_ que requiere de usuario autentiado para poder así obtener una serie de identificaciones que se usan para realizar las peticiones.
+
+## Documentación/Referencias
+
+- [React](https://es.reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API)
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [Material UI](https://material-ui.com/)
+- [Vercel](https://vercel.com/)
+- [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction)

@@ -16,16 +16,11 @@ Con el tiempo del que se dispone, se trata de realizar una aplicación que imite
 
 ## Vista previa
 
-### Vistas móvil:
-
-![Imgur](https://i.imgur.com/SCdQI5f.png) | ![Imgur](https://i.imgur.com/OBsW5rR.png)
-| ![Imgur](https://i.imgur.com/IVTbHat.png)
-
-### Vistas escritorio:
-
-![Imgur](https://i.imgur.com/dn6yDwn.png)
-![Imgur](https://i.imgur.com/TvsRJBU.png)
-![Imgur](https://i.imgur.com/ozB5oLU.png)
+|                             Versión móvil                              |                            Solarized Ocean                             |
+| :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
+| <img src="https://i.imgur.com/SCdQI5f.png" width="225" height="400" /> | <img src="https://i.imgur.com/dn6yDwn.png" width="400" height="250" /> |
+| <img src="https://i.imgur.com/OBsW5rR.png" width="225" height="400" /> | <img src="https://i.imgur.com/TvsRJBU.png" width="400" height="250" /> |
+| <img src="https://i.imgur.com/IVTbHat.png" width="225" height="400" /> | <img src="https://i.imgur.com/ozB5oLU.png" width="400" height="350" /> |
 
 ## Instalación
 

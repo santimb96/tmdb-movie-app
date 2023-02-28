@@ -2,7 +2,8 @@
   z-index: 9999;
   position: fixed;
   top: 2vh;
-  width: 50%;
+  left: 1vw;
+  max-width: 50%;
   height: fit-content;
   color: var(--primary-color);
   box-shadow: 0px 5px 10px 1px rgba(20, 20, 20, 0.1);

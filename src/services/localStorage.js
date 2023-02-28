@@ -93,14 +93,22 @@ const setFavorite = (user, film) => {
     (favorite) => favorite?.id === film?.id,
   )
   if (userExist && !favoriteExist) {
-    userExist.favorites.push(film)
-    localStorage.setItem('users', JSON.stringify(userList))
+    try {
+      userExist.favorites.push(film)
+      localStorage.setItem('users', JSON.stringify(userList))
+    } catch (error) {
+      return false
+    }
   }
   if (favoriteExist) {
-    userExist['favorites'] = userExist.favorites.filter(
-      (favorite) => favorite?.id !== film?.id,
-    )
-    localStorage.setItem('users', JSON.stringify(userList))
+    try {
+      userExist['favorites'] = userExist.favorites.filter(
+        (favorite) => favorite?.id !== film?.id,
+      )
+      localStorage.setItem('users', JSON.stringify(userList))
+    } catch (error) {
+      return false
+    }
   }
 
   return userExist

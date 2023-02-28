@@ -12,6 +12,8 @@
   --primary-color: white;
   --secondary-color: #08b5e1;
   --cookie-color: #91780d;
+  --error-notification-color: rgb(214, 91, 91);
+  --success-notification-color: rgb(108, 187, 108);
 
   /* SIZES */
 

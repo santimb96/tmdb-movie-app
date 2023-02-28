@@ -1,0 +1,43 @@
+.notificationCard {
+  z-index: 9999;
+  position: fixed;
+  top: 2vh;
+  width: 50%;
+  height: fit-content;
+  color: var(--primary-color);
+  box-shadow: 0px 5px 10px 1px rgba(20, 20, 20, 0.1);
+  border-radius: 10px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  animation: onVisible 0.3s ease-in-out;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title svg {
+  font-size: var(--icon);
+}
+
+.title h3 {
+  margin: 0;
+  font-size: var(--text);
+}
+.message {
+  margin: 0;
+  text-align: center;
+  font-size: var(--text);
+}
+
+@keyframes onVisible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

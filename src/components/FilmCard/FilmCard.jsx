@@ -18,12 +18,19 @@ const FilmCard = ({ film }) => {
   const { user, setUser } = useContext(UserContext)
   const [showNotification, setShowNotification] = useState(false)
   const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
   const isFav = user?.favorites?.find((favorite) => favorite?.id === film?.id)
 
   const handleFavorite = (favFilm) => {
+    if (!user?.username) {
+      setError(true)
+      setErrorMessage('You must be logged if you want add favorites')
+      return setShowNotification(true)
+    }
     const favorite = setFavorite(user, favFilm)
     if (!favorite) {
       setError(true)
+      setErrorMessage('Error adding/removing film')
       return setShowNotification(true)
     }
     setUser(favorite)
@@ -38,7 +45,7 @@ const FilmCard = ({ film }) => {
         msg={
           !error
             ? `Film ${isFav ? 'added' : 'removed'} successfully`
-            : 'Error adding/removing film'
+            : errorMessage
         }
         color={
           !error

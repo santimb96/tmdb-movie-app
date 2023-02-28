@@ -10,9 +10,9 @@ const App = () => {
     <div className={styles.app}>
       <Header />
       <div className={styles.container}>
+        <CookieModal />
         <Router />
       </div>
-      <CookieModal />
       <Footer />
     </div>
   )

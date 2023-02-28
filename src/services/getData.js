@@ -24,7 +24,7 @@ const getFilmById = (id = 1) => {
   return fetch(
     `${import.meta.env.VITE_API_URL}/movie/${id}?api_key=${
       import.meta.env.VITE_API_KEY
-    }&language=en-US`,
+    }&language=en-US&&append_to_response=videos,images`,
   )
     .then((response) => response.json())
     .then((data) => data)

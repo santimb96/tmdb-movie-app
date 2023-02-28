@@ -11,7 +11,7 @@ const Favorites = () => {
   }, [user])
   return (
     <>
-      <List list={films} />
+      <List list={films} title={'Favorites'} />
     </>
   )
 }

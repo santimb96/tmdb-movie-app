@@ -4,6 +4,9 @@
   place-items: center;
   gap: 2.5vh;
 }
+.title {
+  font-size: var(--title);
+}
 
 @media (min-width: 768px) {
   .list {

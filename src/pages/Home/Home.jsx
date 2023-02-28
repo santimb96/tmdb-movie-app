@@ -47,7 +47,7 @@ const Home = () => {
         <Loader />
       ) : (
         <>
-          <List list={films} />
+          <List list={films} title={'Trending'} />
           <Pager pages={totalPages} setPage={setPage} />
         </>
       )}

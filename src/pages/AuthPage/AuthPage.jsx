@@ -23,19 +23,12 @@ const AuthPage = () => {
 
   const [msg, setMsg] = useState('')
   const [color, setColor] = useState('')
-  // const [Icon, setIcon] = useState(null)
   const [title, setTitle] = useState('')
   const [showNotification, setShowNotification] = useState(false)
 
-  const handleNotification = (
-    message,
-    backgroundColor,
-    // iconMessage,
-    titleMessage,
-  ) => {
+  const handleNotification = (message, backgroundColor, titleMessage) => {
     setMsg(message)
     setColor(backgroundColor)
-    // setIcon(iconMessage)
     setTitle(titleMessage)
     setShowNotification(true)
     return

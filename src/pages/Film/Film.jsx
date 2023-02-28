@@ -9,6 +9,8 @@ import {
 } from '../../utils/utilities'
 import Loader from '../../components/Loader/Loader'
 import FilmDataComponent from '../../components/FilmDataComponent/FilmDataComponent'
+import NotificationModal from '../../components/NotificationModal/NotificationModal'
+import { BiErrorCircle } from 'react-icons/bi'
 import styles from './Film.module.css'
 const Film = () => {
   const match = useMediaQuery('(min-width:768px)')
@@ -17,6 +19,8 @@ const Film = () => {
   const [film, setFilm] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
+
+  const [showNotification, setShowNotification] = useState(false)
 
   const customList = [
     {
@@ -34,6 +38,16 @@ const Film = () => {
   }, [])
   return (
     <>
+      {error && (
+        <NotificationModal
+          msg={'Do not load the data'}
+          color={'var(--error-notification-color)'}
+          Icon={BiErrorCircle}
+          title={'Error'}
+          show={showNotification}
+          setShowNotification={setShowNotification}
+        />
+      )}
       {loading ? (
         <Loader />
       ) : (

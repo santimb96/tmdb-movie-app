@@ -37,7 +37,7 @@ const Home = () => {
         return page
       }
       getData(
-        `search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=${fixPageOnSearch()}&include_adult=false`,
+        `/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=${fixPageOnSearch()}&include_adult=false`,
       )
     } else {
       getData(

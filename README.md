@@ -10,7 +10,7 @@ TMDB Movie App es una aplicación la cual pretende mostrar películas y guardarl
 
 La idea de la aplicación surge a raíz de una propuesta en una prueba técnica en la cual se especifican una serie de requisitos a cumplir pero con cierto grado de libertad a la hora de escoger temática, cómo y dónde.
 
-Por lo tanto, pienso en la idea de realizar una aplicación básica de películas en la cual el usuario pueda buscar las que desee, así como recibir una lista completa de películas _trending_. Además, éste puede almacenar las películas que más le gusten siempre y cuando esté registrado y auteticado en la aplicación.
+Por lo tanto, pienso en la idea de realizar una aplicación básica de películas/series en la cual el usuario pueda buscar las que desee, así como recibir una lista completa _trending_. Además, ésta puede almacenar las que más le guste siempre y cuando esté registrado y autenticado en la aplicación.
 
 Con el tiempo del que se dispone, se trata de realizar una aplicación que imite los procesos cliente/servidor convencionales, pero sin tener un servidor real. Por lo tanto, se hace uso de _cookies_ y _local storage_ para simular un sistema de autenticación y almacenamiento de datos.
 
@@ -55,6 +55,12 @@ Otras teconologías que se han usado son:
 - **GitHub:** Se utiliza para el control de versiones del proyecto, así como repositorio para el despliegue de la aplicación.
 
 - **TMDB API:** Se usa para obtener la información de las películas. Es una _API_ que requiere de usuario autentiado para poder así obtener una serie de identificaciones que se usan para realizar las peticiones.
+
+## Tiempo de desarrollo
+
+He escogido un tiempo de desarrollo algo largo para poder realizar, en la medida de lo posible, una aplicación completa y bien diseñada. En ningún momento me he querido conformar con ninguno de los niveles, aunque sí que he tratado de ceñirme a la prueba aunque vaya acompañada de una 'sobredosis' de esteroides 😉.
+
+Así pues, me ha llevado una semana de trabajo (no he estado 24/7 en la aplicación) en la que he aplicado conocimientos que tenía, código limpio y también nuevos aprendizajes que me llevo a casa.
 
 ## Documentación/Referencias
 

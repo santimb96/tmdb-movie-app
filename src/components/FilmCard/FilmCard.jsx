@@ -36,9 +36,9 @@ const FilmCard = ({ film }) => {
     setUser(favorite)
     return setShowNotification(true)
   }
-  const handleFilmInformation = (filmId) => {
-    return navigate(`/search/${filmId}`)
-  }
+  const handleFilmInformation = (filmId, mediaType) =>
+    navigate(`/search/${filmId + '+' + mediaType}`)
+
   return (
     <>
       <NotificationModal
@@ -60,7 +60,7 @@ const FilmCard = ({ film }) => {
       <div className={styles.card}>
         <img
           className={styles.poster}
-          onClick={() => handleFilmInformation(film?.id)}
+          onClick={() => handleFilmInformation(film?.id, film?.media_type)}
           src={`https://image.tmdb.org/t/p/w500${film?.poster_path}`}
           alt={film?.title}
         />

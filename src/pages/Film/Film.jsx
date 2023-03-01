@@ -15,7 +15,7 @@ import styles from './Film.module.css'
 const Film = () => {
   const match = useMediaQuery('(min-width:768px)')
 
-  const { id } = useParams()
+  const { query } = useParams()
   const [film, setFilm] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -31,7 +31,8 @@ const Film = () => {
   ]
 
   useEffect(() => {
-    Promise.resolve(getFilmById(id))
+    const params = query.split('+')
+    Promise.resolve(getFilmById(params[0], params[1]))
       .then((data) => setFilm(data))
       .catch((err) => setError(err))
       .finally(() => setLoading(false))

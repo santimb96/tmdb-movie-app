@@ -3,7 +3,9 @@ import { SearchContext } from '../../contexts/SearchContext'
 import List from '../../components/List/List'
 import Pager from '../../components/Pager/Pager'
 import Loader from '../../components/Loader/Loader'
-import { getFilms, getFilmByTitle } from '../../services/getData'
+import { BiErrorCircle } from 'react-icons/bi'
+import { fetchData } from '../../services/getData'
+import { API_KEY } from '../../utils/constants'
 
 const Home = () => {
   const { search } = useContext(SearchContext)
@@ -13,36 +15,48 @@ const Home = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
+  const getData = (url) => {
+    return Promise.resolve(fetchData(url))
+      .then((data) => {
+        setFilms(data?.results)
+        setTotalPages(data?.total_pages)
+      })
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false))
+  }
+
   useEffect(() => {
+    setLoading(true)
     if (search !== '') {
       const fixPageOnSearch = () => {
-        console.log(search.length, page)
         if (search.length === 1) {
           setPage(1)
         }
 
         return page
       }
-      Promise.resolve(getFilmByTitle(search, fixPageOnSearch()))
-        .then((data) => {
-          setFilms(data?.results)
-          setTotalPages(data?.total_pages)
-        })
-        .catch((error) => setError(error))
-        .finally(() => setLoading(false))
+      getData(
+        `search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=${fixPageOnSearch()}&include_adult=false`,
+      )
     } else {
-      Promise.resolve(getFilms(page))
-        .then((data) => {
-          setFilms(data?.results)
-          setTotalPages(data?.total_pages)
-        })
-        .catch((error) => setError(error))
-        .finally(() => setLoading(false))
+      getData(
+        `/trending/all/day?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${page}`,
+      )
     }
   }, [page, search])
 
   return (
     <>
+      {error === true && (
+        <NotificationModal
+          msg={'Can not load the data'}
+          color={'var(--error-notification-color)'}
+          Icon={BiErrorCircle}
+          title={'Error'}
+          show={error}
+          setShowNotification={setError}
+        />
+      )}
       {loading ? (
         <Loader />
       ) : (

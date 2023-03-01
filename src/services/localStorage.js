@@ -14,7 +14,6 @@ const signUp = (
   if (checkIfUserExist(userList, user)) {
     return false
   }
-  console.log(hashPassword(user?.password))
   user['password'] = hashPassword(user?.password)
   userList.push(user)
   localStorage.setItem('users', JSON.stringify(userList))

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getFilmById } from '../../services/getData'
+import { fetchData } from '../../services/getData'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { formatDate, roundNumber } from '../../utils/utilities'
 import Loader from '../../components/Loader/Loader'
@@ -8,6 +8,7 @@ import FilmDataComponent from '../../components/FilmDataComponent/FilmDataCompon
 import NotificationModal from '../../components/NotificationModal/NotificationModal'
 import { BiErrorCircle } from 'react-icons/bi'
 import styles from './Film.module.css'
+import { API_KEY } from '../../utils/constants'
 const Film = () => {
   const match = useMediaQuery('(min-width:768px)')
 
@@ -28,7 +29,14 @@ const Film = () => {
 
   useEffect(() => {
     const params = query.split('+')
-    Promise.resolve(getFilmById(params[0], params[1]))
+
+    Promise.resolve(
+      fetchData(
+        `/${params[1] === 'tv' ? 'tv' : 'movie'}/${
+          params[0]
+        }?api_key=${API_KEY}&language=en-US&&append_to_response=videos,images`,
+      ),
+    )
       .then((data) => setFilm(data))
       .catch((err) => setError(err))
       .finally(() => setLoading(false))

@@ -36,4 +36,7 @@ const PAGES_LIMIT = 20
 
 const NO_AUTH_PATHS = ['/', '/favorites']
 
-export { MONTHS, COLORS, PAGES_LIMIT, NO_AUTH_PATHS }
+const API_KEY = import.meta.env.VITE_API_KEY
+const API_URL = import.meta.env.VITE_API_URL
+
+export { MONTHS, COLORS, PAGES_LIMIT, NO_AUTH_PATHS, API_KEY, API_URL }

@@ -15,16 +15,12 @@ const MONTHS = [
 
 const COLORS = [
   {
-    average: (n) => n === 0,
-    color: 'gray',
-  },
-  {
     average: (n) => n < 5,
-    color: 'red',
+    color: 'var(--error-notification-color)',
   },
   {
     average: (n) => n >= 5 && n < 6,
-    color: 'yellow',
+    color: 'var(--warning-notification-color)',
   },
   {
     average: (n) => n >= 6 && n < 7,

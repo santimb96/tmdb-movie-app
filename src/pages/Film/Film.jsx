@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getFilmById } from '../../services/getData'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import {
-  formatDate,
-  getColorFromAverage,
-  roundNumber,
-} from '../../utils/utilities'
+import { formatDate, roundNumber } from '../../utils/utilities'
 import Loader from '../../components/Loader/Loader'
 import FilmDataComponent from '../../components/FilmDataComponent/FilmDataComponent'
 import NotificationModal from '../../components/NotificationModal/NotificationModal'
@@ -71,6 +67,7 @@ const Film = () => {
                 list={film?.genres}
                 outputField={'name'}
                 length={film?.genres?.length}
+                backgroundColor={true}
               />
               <FilmDataComponent
                 subtitle={'Production country'}
@@ -83,6 +80,7 @@ const Film = () => {
                 list={film?.spoken_languages}
                 outputField={'iso_639_1'}
                 length={film?.spoken_languages?.length}
+                backgroundColor={true}
               />
               <h3 className={styles.subtitle}>Company</h3>
               <div className={styles.company}>

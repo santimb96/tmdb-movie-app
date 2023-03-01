@@ -44,7 +44,7 @@
 }
 
 .voteAverage {
-  font-weight: bold;
+  color: var(--primary-color);
   width: 50%;
   padding: 0.1rem;
   border-radius: 5px;

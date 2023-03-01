@@ -1,6 +1,13 @@
 import React from 'react'
+import { getColorFromAverage } from '../../utils/utilities'
 import styles from './FilmDataComponent.module.css'
-const FilmDataComponent = ({ subtitle, list, outputField, length }) => {
+const FilmDataComponent = ({
+  subtitle,
+  list,
+  outputField,
+  length,
+  backgroundColor = false,
+}) => {
   return (
     <>
       <h3 className={styles.subtitle}>{subtitle}</h3>
@@ -11,15 +18,13 @@ const FilmDataComponent = ({ subtitle, list, outputField, length }) => {
             className={styles.tag}
             style={{
               backgroundColor: `${
-                (length > 2 ||
-                  element?.isAverage ||
-                  outputField === 'iso_639_1') &&
-                'var(--secondary-color)'
+                (backgroundColor || element?.isAverage) &&
+                (element?.isAverage
+                  ? getColorFromAverage(element[outputField])
+                  : 'var(--secondary-color)')
               }`,
               color: `${
-                (length > 2 ||
-                  element?.isAverage ||
-                  outputField === 'iso_639_1') &&
+                (backgroundColor || element?.isAverage) &&
                 'var(--primary-color)'
               }`,
             }}

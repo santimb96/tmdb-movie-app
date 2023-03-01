@@ -6,7 +6,7 @@ import {
   getColorFromAverage,
   roundNumber,
 } from '../../utils/utilities'
-import { AiOutlineCheckCircle } from 'react-icons/ai'
+import { AiOutlineCheckCircle, AiOutlineInfoCircle } from 'react-icons/ai'
 import { BiErrorCircle } from 'react-icons/bi'
 import { setFavorite } from '../../services/localStorage'
 import FavButton from '../FavButton/FavButton'
@@ -19,12 +19,14 @@ const FilmCard = ({ film }) => {
   const [showNotification, setShowNotification] = useState(false)
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [infoMessage, setInfoMessage] = useState('')
+  const [info, setInfo] = useState(false)
   const isFav = user?.favorites?.find((favorite) => favorite?.id === film?.id)
 
   const handleFavorite = (favFilm) => {
     if (!user?.username) {
-      setError(true)
-      setErrorMessage('You must be logged if you want add favorites')
+      setInfo(true)
+      setInfoMessage('You must be logged if you want add favorites')
       return setShowNotification(true)
     }
     const favorite = setFavorite(user, favFilm)
@@ -43,17 +45,27 @@ const FilmCard = ({ film }) => {
     <>
       <NotificationModal
         msg={
-          !error
-            ? `Film ${isFav ? 'added' : 'removed'} successfully`
-            : errorMessage
+          error
+            ? errorMessage
+            : info
+            ? infoMessage
+            : `Film ${isFav ? 'added' : 'removed'} successfully`
         }
         color={
-          !error
-            ? 'var(--success-notification-color)'
-            : 'var(--error-notification-color)'
+          error
+            ? 'var(--error-notification-color)'
+            : info
+            ? 'var(--info-notification-color)'
+            : 'var(--success-notification-color)'
         }
-        Icon={!error ? AiOutlineCheckCircle : BiErrorCircle}
-        title={!error ? 'Success' : 'Error'}
+        Icon={
+          error
+            ? BiErrorCircle
+            : info
+            ? AiOutlineInfoCircle
+            : AiOutlineCheckCircle
+        }
+        title={error ? 'Error' : info ? 'Info' : 'Success'}
         show={showNotification}
         setShowNotification={setShowNotification}
       />

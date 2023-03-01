@@ -26,7 +26,7 @@ Con el tiempo del que se dispone, se trata de realizar una aplicación que imite
 
 Para instalar el proyecto en local, se ha de hacer lo siguiente:
 
-- Clonar el repositorio este repositorio (https://github.com/santimb96/tmdb-movie-app.git)
+- Clonar este repositorio (https://github.com/santimb96/tmdb-movie-app.git)
 
 - Instalar las dependencias del proyecto con el comando `npm install`.
 - Ejecutar el proyecto con `npm run dev`.

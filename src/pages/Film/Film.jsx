@@ -37,7 +37,10 @@ const Film = () => {
         }?api_key=${API_KEY}&language=en-US&&append_to_response=videos,images`,
       ),
     )
-      .then((data) => setFilm(data))
+      .then((data) => {
+        document.title = `${data?.title || data?.name} | TMDb`
+        setFilm(data)
+      })
       .catch((err) => setError(err))
       .finally(() => setLoading(false))
   }, [])

@@ -16,7 +16,7 @@ const Home = () => {
   const [error, setError] = useState(null)
 
   const getData = (url) => {
-    return Promise.resolve(fetchData(url))
+    Promise.resolve(fetchData(url))
       .then((data) => {
         setFilms(data?.results)
         setTotalPages(data?.total_pages)
@@ -26,6 +26,7 @@ const Home = () => {
   }
 
   useEffect(() => {
+    document.title = 'TMDb'
     setLoading(true)
     if (search !== '') {
       const fixPageOnSearch = () => {

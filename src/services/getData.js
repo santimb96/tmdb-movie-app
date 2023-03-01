@@ -20,7 +20,7 @@ const getFilmByTitle = (title = 'harry potter', page = 1) => {
     .catch((error) => error)
 }
 
-const getFilmById = (id = 1, mediaType) => {
+const getFilmById = (id = 1, mediaType = 'movie') => {
   return fetch(
     `${import.meta.env.VITE_API_URL}/${
       mediaType === 'tv' ? 'tv' : 'movie'
